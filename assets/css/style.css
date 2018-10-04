@@ -1,0 +1,19 @@
+/* font-family: 'Charmonman', cursive;
+font-family: 'Indie Flower', cursive; */
+
+h1 {
+    font-family: 'Indie Flower', cursive;
+    font-size: 30px;
+    line-height: 1.5;
+    letter-spacing: 3; 
+} 
+
+p {
+    font-family: 'Charmonman', cursive;
+    font-size: 15px;
+    line-height: 1.5;
+    letter-spacing: 3;
+    background-color: #808080;
+}
+
+
