@@ -1,61 +1,3 @@
-//    var computerChoices = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-        
-//     var wins = 0;
-//     var losses = 0;
-//     var numberGuesses = 9;
-//     var guessChoices = [];
-//     var computerGuess = [];
-
-//     window.onload = function() {   
-//         var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-//         computerGuess.push(computerGuess);
-//         console.log(computerGuess[0]);
-//     }
-    
-    
-//     document.onkeyup = function(event) {
-//             var userGuess = event.key;
-//             guessChoices.push(userGuess);
-//             console.log(computerGuess[0]);
-            
-//             //var options = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-        
-           
-//         //document.getElementById("computerGuess").textContent = computerGuess;
-
-//                 if ((userGuess === computerGuess[0]) && (numberGuesses > 0)) {
-//                         wins++;
-//                         numberGuesses = 9;
-//                         guessChoices.length = 0;
-//                         computerGuess.length = 0;
-//                         var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-//                         computerGuess.push(computerGuess);
-//                         console.log(computerGuess[0]);
-                        
-//                     }
-
-//                     else if (userGuess !== computerGuess[0] && (numberGuesses > 0)) {
-//                         numberGuesses = numberGuesses -1;
-                        
-//                     }
-
-//                     else {
-//                         losses ++;
-//                         numberGuesses = 9;
-//                         guessChoices.length = 0;
-//                         computerGuess.length = 0;
-//                         var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-//                         computerGuess.push(computerGuess);
-//                         console.log(computerGuess[0]);
-
-//                     }
-                    
-    //  var html=
-    //      "<h1> The Psychic Game </h1>" + "<p> Guess what letter I'm thinking of! </p>" + "<p> Wins:" + wins + "</p>" + "<p> Losses: " + losses + "</p>" + "<p> Guesses Left: " + numberGuesses + "</p>" + "<p> Your Guesses so far: " + guessChoices.join(",") + "</p>";
-        
-    //  document.querySelector("#game").innerHTML = html;
-    //var computerChoices = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-        
     var wins = 0;
     var losses = 0;
     var guessesLeft = 9;
@@ -65,39 +7,39 @@
 
     document.onkeyup = function(event) {
 
-        // var userGuess = String.fromCharCode(event.keycode);
         var userGuess = event.key;
         var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
         guessesSoFar.push(userGuess);
             
-        if (userGuess == computerGuess) {
+        if (userGuess === computerGuess) {
                 wins++;
                 alert("Good Job! Keep playing :)");
                 guessesLeft = 9;
                 guessesSoFar.length = 0;
             }
 
-        else if (guessesLeft == 0) {
+        else if (guessesLeft === 0) {
                 losses++;
                 alert("Keep playing, try again!")
                 guessesLeft = 9;
                 guessesSoFar.length = 0;
             }
             
-        else if (userGuess !== computerGuess) {
-                guessesLeft--;
-            }
+       
+        else if ((userGuess !== computerGuess[0]) && (guessesLeft > 0)) {
+            guessesLeft = guessesLeft-1;
+        }
             
             var html="<h1> The Psychic Game </h1>" + 
-            "<p> Guess what letter I'm thinking of! </p>" + 
+            "<p> Guess What Letter I'm Thinking of! </p>" + 
             "<p> Wins: " + wins + "</p>" + 
             "<p> Losses: " + losses + "</p>" + 
             "<p> Guesses Left: " + 
             guessesLeft + "</p>" + 
-             "<p> Your Guesses so far: " + 
+             "<p> Your Guesses so Far: " + 
              guessesSoFar + 
             "</p>";
         
-     document.querySelector("#wordguessgame").innerHTML = html;
+     document.querySelector("#psychicGame").innerHTML = html;
 
     }
